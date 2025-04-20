@@ -15,7 +15,6 @@ app.post("/get-assistance", (req, res) => {
   if (payload === null || payload === undefined) {
     res.status(400, "Bad request");
   } else {
-    console.log("payload: ", payload);
     llm.getHelp(payload, res);
   }
 });
