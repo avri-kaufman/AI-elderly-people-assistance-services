@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elderly Assistance</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to Elderly Assistance Services</h1>
+      <p class="subtitle">We're here to help you with your device issues</p>
+
+      <form action="/get-assistance" method="POST" id="helpForm">
+        <div class="form-group">
+          <label for="deviceType"
+            >What type of device do you need help with?</label
+          >
+          <input
+            type="text"
+            id="deviceType"
+            name="deviceType"
+            placeholder="For example: TV, Computer, Phone, etc."
+            class="input-field"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="deviceDetails">Tell us about your device</label>
+          <input
+            type="text"
+            id="deviceDetails"
+            name="deviceDetails"
+            placeholder="Brand name and model (if you know it)"
+            class="input-field"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="problemDescription">What's the problem?</label>
+          <input
+            type="text"
+            id="problemDescription"
+            name="problemDescription"
+            placeholder="Describe what's not working"
+            class="input-field"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="file-upload">
+            <span>Upload a photo of the problem (optional)</span>
+            <div class="upload-options">
+              <button type="button" class="upload-btn" id="fileUploadBtn">
+                Choose from Device
+              </button>
+              <button type="button" class="upload-btn" id="cameraBtn">
+                Take Photo
+              </button>
+            </div>
+            <input type="file" name="img" accept="image/*" id="fileInput" />
+            <input type="hidden" name="cameraImage" id="cameraImage" />
+            <p class="help-text">
+              You can either choose a photo or take one with your camera
+            </p>
+          </label>
+          <div
+            id="previewContainer"
+            class="preview-container"
+            style="display: none"
+          >
+            <img id="imagePreview" src="" alt="Preview" />
+            <button type="button" class="remove-btn" id="removeImageBtn">
+              Remove Photo
+            </button>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <input type="submit" value="Get Help" />
+          <input type="reset" value="Start Over" />
+        </div>
+      </form>
+    </div>
+
+    <!-- Camera Modal -->
+    <div id="cameraModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Take a Photo</h2>
+        <div class="camera-container">
+          <video id="cameraView" autoplay playsinline></video>
+          <button id="captureBtn" class="capture-btn">Take Photo</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

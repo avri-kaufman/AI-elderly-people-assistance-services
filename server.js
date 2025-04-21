@@ -5,10 +5,7 @@ const app = express();
 PORT = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-app.get("/", (req, res) => {
-  res.send("Hi from server.js!"); // need to send an html file with the form for user
-});
+app.use(express.static("public"));
 
 app.post("/get-assistance", (req, res) => {
   payload = req.body;
